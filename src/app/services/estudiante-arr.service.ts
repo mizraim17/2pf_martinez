@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Estudiante } from '../models/estudiante';
 import { DataSource } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable,map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +34,7 @@ export class EstudianteArrService {
     },
 
     {
-      nombre: 'Snake  ',
+      nombre: 'Snake',
       apellido: 'Reporter',
       curso: 'NODE ',
       correo: 'snake_reporter@gmail.com',
@@ -44,7 +44,7 @@ export class EstudianteArrService {
       foto: 'https://rickandmortyapi.com/api/character/avatar/589.jpeg',
     },
     {
-      nombre: 'Aqua  ',
+      nombre: 'Snake',
       apellido: ' Morty',
       curso: 'NODE ',
       correo: 'aqua_norty@gmail.com',
@@ -79,6 +79,16 @@ export class EstudianteArrService {
 
   constructor() {
     this.estudiante$ = new BehaviorSubject(this.estudiantes);
+    of(this.estudiantes)
+      .pipe(
+        map((list: Estudiante[]) => {
+          return list.filter((list: Estudiante) => list.nombre == 'snake');
+        })
+      )
+      .subscribe((list) => {
+        console.log('obtenido desde of', list);
+      });
+
   }
 
   ngOnInit(): void {}
@@ -126,24 +136,23 @@ export class EstudianteArrService {
   }
 
   filtrarEstudiante(word: string) {
-    let result;
-    const array_copy = this.estudiantes;
-
-    console.log('entro a array_copy', array_copy);
-
     if (word == '') {
-      console.log('entro a vacio', array_copy);
-
-      this.estudiantes = array_copy;
+      this.estudiante$.next(this.estudiantes);
     } else {
-      result = this.estudiantes.filter((ele) => {
+      of(this.estudiantes)
+        .pipe(
+          map((list: Estudiante[]) => {
+            return list.filter((ele) => {
         return ele.nombre
           .toLocaleLowerCase()
           .includes(word.toLocaleLowerCase());
-      });
-      this.estudiantes = result;
+            });
+          })
+        )
+        .subscribe((list) => {
+          console.log('Buscar', list);
+          this.estudiante$.next(list);
+        });
     }
-
-    this.estudiante$.next(this.estudiantes);
   }
 }

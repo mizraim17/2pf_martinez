@@ -21,7 +21,6 @@ export class ListaComponent {
 
   filtrar(event: Event) {
     let word = (event.target as HTMLInputElement).value;
-
     this.estudianteService.filtrarEstudiante(word);
   }
 
