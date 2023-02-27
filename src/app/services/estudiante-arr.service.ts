@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Estudiante } from '../models/estudiante';
-import { DataSource } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject, Observable,map, of } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -88,7 +86,6 @@ export class EstudianteArrService {
       .subscribe((list) => {
         console.log('obtenido desde of', list);
       });
-
   }
 
   ngOnInit(): void {}
@@ -104,14 +101,12 @@ export class EstudianteArrService {
 
   editarEstudiante(estu: any, data: Estudiante) {
     console.log('estu', estu);
-    // console.log('this.dataSource.data', this.dataSource.data[0]);
 
     let arr_copy = this.estudiantes;
 
     arr_copy.map((elem, i) => {
       if (arr_copy[i] == data) {
-        // console.log('arr_copy[index]', arr_copy[i]);
-        console.log('element', estu.foto);
+        console.log('element', elem);
 
         arr_copy[i] = {
           nombre: estu.nombre,
@@ -143,9 +138,9 @@ export class EstudianteArrService {
         .pipe(
           map((list: Estudiante[]) => {
             return list.filter((ele) => {
-        return ele.nombre
-          .toLocaleLowerCase()
-          .includes(word.toLocaleLowerCase());
+              return ele.nombre
+                .toLocaleLowerCase()
+                .includes(word.toLocaleLowerCase());
             });
           })
         )

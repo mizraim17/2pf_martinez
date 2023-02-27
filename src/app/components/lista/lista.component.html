@@ -5,7 +5,7 @@
     <div class="row">
 
       <mat-form-field class="example-full-width">
-        <mat-label>Favorite food</mat-label>
+        <mat-label>Filtrar</mat-label>
         <input type="text" matInput (keyup)="filtrar($event)">
       </mat-form-field>
     </div>
@@ -25,7 +25,7 @@
           <button mat-raised-button color="primary" (click)="editarDatos(estudiante)">
             Editar
           </button>
-          <button mat-button color="warn" (click)="eliminarDatos(i)">
+          <button mat-stroked-button color="warn" (click)="eliminarDatos(i)">
             Eliminar
           </button>
         </mat-card-actions>
