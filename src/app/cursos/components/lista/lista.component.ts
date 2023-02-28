@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudiante } from '../../../models/estudiante';
 import { Observable } from 'rxjs';
-import { EstudianteArrService } from '../../../services/estudiante-arr.service';
+
 import { EditarEstudianteComponent } from '../editar-estudiante/editar-estudiante.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CursosService } from '../../services/cursos.service';
 
 @Component({
   selector: 'app-lista',
@@ -16,7 +17,7 @@ export class ListaComponent {
 
   constructor(
     private dialog: MatDialog,
-    private estudianteService: EstudianteArrService
+    private estudianteService: CursosService
   ) {}
 
   filtrar(event: Event) {

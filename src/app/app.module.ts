@@ -12,9 +12,10 @@ import { MaterialModule } from './material.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontSizeDirective } from './directives/font-size.directive';
-import { EstudianteArrService } from './services/estudiante-arr.service';
+
 import { HomeComponent } from './core/components/home/home.component';
 import { PaginaErrorComponent } from './core/components/pagina-error/pagina-error.component';
+import { CursosService } from './cursos/services/cursos.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { PaginaErrorComponent } from './core/components/pagina-error/pagina-erro
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [EstudianteArrService],
+  providers: [CursosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

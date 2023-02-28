@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { Estudiante } from 'src/app/models/estudiante';
 
-@Injectable( )
+@Injectable()
 export class CursosService {
-
-   private estudiantes: Estudiante[] = [
+  private estudiantes: Estudiante[] = [
     {
       nombre: 'Johnny  ',
       apellido: 'Depp',
@@ -71,41 +70,38 @@ export class CursosService {
 
       foto: 'https://rickandmortyapi.com/api/character/avatar/188.jpeg',
     },
-   ];
+  ];
 
-    private estudiante$!: BehaviorSubject<Estudiante[]>;
+  private estudiante$!: BehaviorSubject<Estudiante[]>;
 
   constructor() {
- this.estudiante$ = new BehaviorSubject(this.estudiantes);
-
+    this.estudiante$ = new BehaviorSubject<Estudiante[]>(this.estudiantes);
   }
 
   obtenerEstudiantesObservable(): Observable<Estudiante[]> {
     return this.estudiante$.asObservable();
   }
 
-  agregarEstudiante(estudiante: Estudiante):void {
+  agregarEstudiante(estudiante: Estudiante): void {
     this.estudiantes.push(estudiante);
     this.estudiante$.next(this.estudiantes);
   }
 
-  editarEstudiante(estudiante: , arr: Estudiante) {
-
-   this.estudiantes.map((elem, i) => {
+  editarEstudiante(estudiante: any, arr: Estudiante) {
+    this.estudiantes.map((elem, i) => {
       if (elem == arr) {
         this.estudiantes[i] = estudiante;
+        this.estudiante$.next(this.estudiantes);
       }
     });
-
-    this.estudiante$.next(this.estudiantes);
   }
 
-  eliminarEstudiante(i: number) :void {
+  eliminarEstudiante(i: number): void {
     this.estudiantes.splice(i, 1);
     this.estudiante$.next(this.estudiantes);
   }
 
-  filtrarEstudiante(word: string) :void {
+  filtrarEstudiante(word: string): void {
     if (word == '') {
       this.estudiante$.next(this.estudiantes);
     } else {

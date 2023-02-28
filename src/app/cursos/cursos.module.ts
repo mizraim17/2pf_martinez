@@ -11,8 +11,8 @@ import { MaterialModule } from '../material.module';
 import { ConcatNombreApellidoPipe } from '../pipes/concat-nombre-apellido.pipe';
 import { ValidaCalificacionPipe } from '../pipes/valida-calificacion.pipe';
 
-import { EstudianteArrService } from '../services/estudiante-arr.service';
 import { CursosRoutingModule } from './cursos-routing.module';
+import { CursosService } from './services/cursos.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { CursosRoutingModule } from './cursos-routing.module';
     ValidaCalificacionPipe,
   ],
 
-  providers: [EstudianteArrService],
+  providers: [CursosService],
 })
 export class CursosModule {}
-  

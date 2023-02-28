@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EstudianteArrService } from '../../../services/estudiante-arr.service';
+
 import { Estudiante } from '../../../models/estudiante';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { CursosService } from '../../services/cursos.service';
 
 @Component({
   selector: 'app-agregar-estudiante',
@@ -16,7 +17,7 @@ export class AgregarEstudianteComponent {
   formulario: FormGroup;
   suscripcion!: Subscription;
 
-  constructor(private estudianteService: EstudianteArrService) {
+  constructor(private estudianteService: CursosService) {
     let controles: any = {
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl('', [Validators.required]),
