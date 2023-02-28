@@ -1,10 +1,8 @@
-import { Dialog } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EstudianteArrService } from '../../services/estudiante-arr.service';
-import { Estudiante } from '../../models/estudiante';
-import { DataSource } from '@angular/cdk/collections';
+import { EstudianteArrService } from '../../../services/estudiante-arr.service';
+import { Estudiante } from '../../../models/estudiante';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
@@ -66,9 +64,6 @@ export class EditarEstudianteComponent {
   }
 
   editEstudiante(estu: any, data: Estudiante) {
-    console.log('estu value', estu.value);
-    console.log('estu data', data);
-
     this.estudianteService.editarEstudiante(estu.value, data);
   }
 }

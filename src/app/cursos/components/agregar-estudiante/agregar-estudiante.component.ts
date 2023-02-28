@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EstudianteArrService } from '../../services/estudiante-arr.service';
-import { Estudiante } from '../../models/estudiante';
+import { EstudianteArrService } from '../../../services/estudiante-arr.service';
+import { Estudiante } from '../../../models/estudiante';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 

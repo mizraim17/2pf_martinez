@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { Estudiante } from '../../models/estudiante';
+import { Estudiante } from '../../../models/estudiante';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarEstudianteComponent } from '../editar-estudiante/editar-estudiante.component';
-import { EstudianteArrService } from '../../services/estudiante-arr.service';
+import { EstudianteArrService } from '../../../services/estudiante-arr.service';
 import { AgregarEstudianteComponent } from '../agregar-estudiante/agregar-estudiante.component';
 import { Subscription } from 'rxjs';
 

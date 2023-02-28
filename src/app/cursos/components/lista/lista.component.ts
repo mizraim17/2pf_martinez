@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Estudiante } from '../../models/estudiante';
+import { Estudiante } from '../../../models/estudiante';
 import { Observable } from 'rxjs';
-import { EstudianteArrService } from '../../services/estudiante-arr.service';
+import { EstudianteArrService } from '../../../services/estudiante-arr.service';
 import { EditarEstudianteComponent } from '../editar-estudiante/editar-estudiante.component';
 import { MatDialog } from '@angular/material/dialog';
 

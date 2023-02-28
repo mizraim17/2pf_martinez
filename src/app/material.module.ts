@@ -29,7 +29,6 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatToolbarModule,
     MatIconModule,
-    MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
     MatDialogModule,
