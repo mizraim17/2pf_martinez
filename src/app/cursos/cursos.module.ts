@@ -10,8 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { ConcatNombreApellidoPipe } from '../pipes/concat-nombre-apellido.pipe';
 import { ValidaCalificacionPipe } from '../pipes/valida-calificacion.pipe';
-import { MatIconModule } from '@angular/material/icon';
+
 import { EstudianteArrService } from '../services/estudiante-arr.service';
+import { CursosRoutingModule } from './cursos-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { EstudianteArrService } from '../services/estudiante-arr.service';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatIconModule,
+    CursosRoutingModule,
   ],
   exports: [
     AgregarEstudianteComponent,
@@ -36,7 +37,6 @@ import { EstudianteArrService } from '../services/estudiante-arr.service';
     TablaComponent,
     ConcatNombreApellidoPipe,
     ValidaCalificacionPipe,
-    MatIconModule,
   ],
 
   providers: [EstudianteArrService],

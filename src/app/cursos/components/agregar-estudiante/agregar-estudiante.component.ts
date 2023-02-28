@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EstudianteArrService } from '../../../services/estudiante-arr.service';
 import { Estudiante } from '../../../models/estudiante';
@@ -16,12 +16,7 @@ export class AgregarEstudianteComponent {
   formulario: FormGroup;
   suscripcion!: Subscription;
 
-  constructor(
-    private estudianteService: EstudianteArrService,
-
-    private dialogRef: MatDialogRef<AgregarEstudianteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
+  constructor(private estudianteService: EstudianteArrService) {
     let controles: any = {
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl('', [Validators.required]),
