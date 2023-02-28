@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -18,6 +19,8 @@ import { FontSizeDirective } from './directives/font-size.directive';
 import { EstudianteArrService } from './services/estudiante-arr.service';
 import { ValidaCalificacionPipe } from './pipes/valida-calificacion.pipe';
 import { ListaComponent } from './components/lista/lista.component';
+import { HomeComponent } from './components/home/home.component';
+import { PaginaErrorComponent } from './components/pagina-error/pagina-error.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,15 @@ import { ListaComponent } from './components/lista/lista.component';
     ConcatNombreApellidoPipe,
     ValidaCalificacionPipe,
     ListaComponent,
+    HomeComponent,
+    PaginaErrorComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [EstudianteArrService],
   bootstrap: [AppComponent],

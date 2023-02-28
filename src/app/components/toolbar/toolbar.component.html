@@ -4,10 +4,14 @@
   </button>
   <span class="ps-3"> Control Escolar</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
+  <button mat-button (click)="irInicio()">
+    Inicio
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+  <a mat-button routerLink="cursos/cards">
+    Cards
+  </a>
+  <a mat-button routerLink="cursos/list">
+    Lista
+  </a>
+
 </mat-toolbar>

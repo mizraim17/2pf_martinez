@@ -20,29 +20,7 @@ export class EstudianteArrService {
       foto: 'https://rickandmortyapi.com/api/character/avatar/183.jpeg',
     },
     {
-      nombre: 'Amy',
-      apellido: 'Poopybutthole',
-      curso: 'REACT',
-      correo: 'amy@gmail.com',
-      calificacion: 8.6,
-      sexo: 'femenino',
-      becado: true,
-
-      foto: 'https://rickandmortyapi.com/api/character/avatar/247.jpeg',
-    },
-
-    {
-      nombre: 'Snake',
-      apellido: 'Reporter',
-      curso: 'NODE ',
-      correo: 'snake_reporter@gmail.com',
-      calificacion: 5.9,
-      sexo: 'masculino',
-      becado: false,
-      foto: 'https://rickandmortyapi.com/api/character/avatar/589.jpeg',
-    },
-    {
-      nombre: 'Snake',
+      nombre: 'Aqua',
       apellido: ' Morty',
       curso: 'NODE ',
       correo: 'aqua_norty@gmail.com',
@@ -62,6 +40,29 @@ export class EstudianteArrService {
       becado: false,
       foto: 'https://rickandmortyapi.com/api/character/avatar/810.jpeg',
     },
+    {
+      nombre: 'Supernova',
+      apellido: ' ',
+      curso: 'REACT',
+      correo: 'amy@gmail.com',
+      calificacion: 8.6,
+      sexo: 'femenino',
+      becado: true,
+
+      foto: 'https://rickandmortyapi.com/api/character/avatar/340.jpeg',
+    },
+
+    {
+      nombre: 'Snake',
+      apellido: 'Reporter',
+      curso: 'NODE ',
+      correo: 'snake_reporter@gmail.com',
+      calificacion: 5.9,
+      sexo: 'masculino',
+      becado: false,
+      foto: 'https://rickandmortyapi.com/api/character/avatar/589.jpeg',
+    },
+
     {
       nombre: 'Karen ',
       apellido: 'Entity',
@@ -136,17 +137,16 @@ export class EstudianteArrService {
     } else {
       of(this.estudiantes)
         .pipe(
-          map((list: Estudiante[]) => {
-            return list.filter((ele) => {
+          map((filtrada: Estudiante[]) => {
+            return filtrada.filter((ele) => {
               return ele.nombre
                 .toLocaleLowerCase()
                 .includes(word.toLocaleLowerCase());
             });
           })
         )
-        .subscribe((list) => {
-          console.log('Buscar', list);
-          this.estudiante$.next(list);
+        .subscribe((filtrada) => {
+          this.estudiante$.next(filtrada);
         });
     }
   }
