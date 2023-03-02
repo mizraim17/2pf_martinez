@@ -7,12 +7,13 @@ import { ListaComponent } from './components/lista/lista.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../material.module';
+
 import { ConcatNombreApellidoPipe } from '../pipes/concat-nombre-apellido.pipe';
 import { ValidaCalificacionPipe } from '../pipes/valida-calificacion.pipe';
 
 import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosService } from './services/cursos.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CursosService } from './services/cursos.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    SharedModule,
     CursosRoutingModule,
   ],
   exports: [

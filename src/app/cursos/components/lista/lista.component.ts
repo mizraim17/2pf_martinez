@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudiante } from '../../../models/estudiante';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { EditarEstudianteComponent } from '../editar-estudiante/editar-estudiante.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,6 +14,7 @@ import { CursosService } from '../../services/cursos.service';
 export class ListaComponent {
   estudiantes!: Estudiante;
   estudiantes$!: Observable<Estudiante[]>;
+  suscripcion!: Subscription;
 
   constructor(
     private dialog: MatDialog,

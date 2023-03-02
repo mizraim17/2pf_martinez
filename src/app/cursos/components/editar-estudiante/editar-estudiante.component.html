@@ -73,13 +73,14 @@
       </div>
 
       <div class="form-group col-md-6 col-lg-6 col-12 col-sm-6">
-        <label for="sexo" class="form-label">Sexo</label>
-        <input formControlName="sexo" type="text" class="form-control" id="sexo">
-        <div class="valido" *ngIf=" formulario.controls['sexo'].touched && formulario.controls['sexo'].valid ">
+        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+        <input formControlName="fechaNacimiento" type="date" class="form-control" id="fechaNacimiento">
+        <div class="valido"
+          *ngIf=" formulario.controls['fechaNacimiento'].touched && formulario.controls['fechaNacimiento'].valid ">
           Es Válido
         </div>
         <div class="invalido"
-          *ngIf="formulario.controls['sexo'].errors?.['required'] && formulario.controls['sexo'].dirty ">
+          *ngIf="formulario.controls['fechaNacimiento'].errors?.['required'] && formulario.controls['fechaNacimiento'].dirty ">
           Está Vacío
         </div>
       </div>

@@ -4,7 +4,7 @@ export interface Estudiante {
   curso: string;
   correo: string;
   calificacion: number;
-  sexo: string;
+  fechaNacimiento: Date;
   becado: boolean;
   foto: string;
 }

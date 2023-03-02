@@ -18,19 +18,6 @@ export class EditarEstudianteComponent {
   suscripcion!: Subscription;
   formulario: FormGroup;
 
-  private arr_1: Estudiante[] = [
-    {
-      nombre: 'Baby ',
-      apellido: 'Rick',
-      curso: 'ANGULAR',
-      correo: 'baby@gmail.com',
-      calificacion: 4.6,
-      sexo: 'Masculino',
-      becado: true,
-      foto: 'https://rickandmortyapi.com/api/character/avatar/741.jpeg',
-    },
-  ];
-
   constructor(
     private estudianteService: CursosService,
 
@@ -47,7 +34,9 @@ export class EditarEstudianteComponent {
         ),
       ]),
       calificacion: new FormControl(data.calificacion, [Validators.required]),
-      sexo: new FormControl(data.sexo, [Validators.required]),
+      fechaNacimiento: new FormControl(data.fechaNacimiento, [
+        Validators.required,
+      ]),
       becado: new FormControl(data.becado, []),
       foto: new FormControl(data.foto, [Validators.required]),
     };
@@ -61,6 +50,10 @@ export class EditarEstudianteComponent {
       .subscribe((estudiantes: Estudiante[]) => {
         this.dataSource.data = estudiantes;
       });
+  }
+
+  ngOnDestroy(): void {
+    this.suscripcion.unsubscribe();
   }
 
   editEstudiante(estu: any, data: Estudiante) {

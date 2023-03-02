@@ -11,7 +11,7 @@ export class CursosService {
       curso: 'ANGULAR',
       correo: 'johnny_depp@gmail.com',
       calificacion: 6,
-      sexo: 'Masculino',
+      fechaNacimiento: new Date(1923, 0, 1, 20, 30, 0),
       becado: false,
       foto: 'https://rickandmortyapi.com/api/character/avatar/183.jpeg',
     },
@@ -21,9 +21,8 @@ export class CursosService {
       curso: 'NODE ',
       correo: 'aqua_norty@gmail.com',
       calificacion: 8.6,
-      sexo: 'masculino',
+      fechaNacimiento: new Date(1623, 11, 1, 20, 30, 0),
       becado: true,
-
       foto: 'https://rickandmortyapi.com/api/character/avatar/21.jpeg',
     },
     {
@@ -32,7 +31,7 @@ export class CursosService {
       curso: 'NODE ',
       correo: 'stanlee_rick@gmail.com',
       calificacion: 1.9,
-      sexo: 'masculino',
+      fechaNacimiento: new Date(2023, 0, 1, 20, 30, 0),
       becado: false,
       foto: 'https://rickandmortyapi.com/api/character/avatar/810.jpeg',
     },
@@ -42,9 +41,8 @@ export class CursosService {
       curso: 'REACT',
       correo: 'amy@gmail.com',
       calificacion: 8.6,
-      sexo: 'femenino',
+      fechaNacimiento: new Date(1913, 9, 1, 20, 30, 0),
       becado: true,
-
       foto: 'https://rickandmortyapi.com/api/character/avatar/340.jpeg',
     },
 
@@ -54,21 +52,20 @@ export class CursosService {
       curso: 'NODE ',
       correo: 'snake_reporter@gmail.com',
       calificacion: 5.9,
-      sexo: 'masculino',
+      fechaNacimiento: new Date(2012, 4, 1, 20, 30, 0),
       becado: false,
       foto: 'https://rickandmortyapi.com/api/character/avatar/589.jpeg',
     },
 
     {
-      nombre: 'Karen ',
+      nombre: 'Jacqueline',
       apellido: 'Entity',
       curso: 'NODE ',
       correo: 'karen@gmail.com',
       calificacion: 7.7,
-      sexo: 'femenino',
+      fechaNacimiento: new Date(2003, 9, 1, 20, 30, 0),
       becado: true,
-
-      foto: 'https://rickandmortyapi.com/api/character/avatar/188.jpeg',
+      foto: 'https://rickandmortyapi.com/api/character/avatar/170.jpeg',
     },
   ];
 
@@ -83,6 +80,13 @@ export class CursosService {
   }
 
   agregarEstudiante(estudiante: Estudiante): void {
+    let number_random;
+
+    number_random = Math.round(Math.random() * 826);
+
+    estudiante[
+      'foto'
+    ] = `https://rickandmortyapi.com/api/character/avatar/${number_random}.jpeg`;
     this.estudiantes.push(estudiante);
     this.estudiante$.next(this.estudiantes);
   }

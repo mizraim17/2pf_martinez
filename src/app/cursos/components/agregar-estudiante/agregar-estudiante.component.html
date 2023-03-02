@@ -5,7 +5,7 @@
 <div mat-dialog-content>
 
   <form [formGroup]="formulario" (ngSubmit)="addEstudiante(formulario)" class="row g-3 mt-5">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <label for="nombre" class="form-label">Nombre</label>
       <input type="text" class="form-control" id="nombre" formControlName="nombre">
       <div class="valido" *ngIf="formulario.controls['nombre'].touched && formulario.controls['nombre'].valid ">
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <label for="apellido" class="form-label">Apellido</label>
       <input formControlName="apellido" type="text" class="form-control" id="apellido">
       <div class="valido" *ngIf="  formulario.controls['apellido'].touched && formulario.controls['apellido'].valid ">
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <label for="curso" class="form-label">Curso</label>
       <input formControlName="curso" type="text" class="form-control" id="curso">
       <div class="valido" *ngIf=" formulario.controls['curso'].touched && formulario.controls['curso'].valid ">
@@ -42,7 +42,7 @@
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
       <label for="correo" class="form-label">Correo</label>
       <input formControlName="correo" type="text" class="form-control" id="correo">
       <div class="valido" *ngIf="formulario.controls['correo'].touched && formulario.controls['correo'].valid ">
@@ -54,8 +54,8 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <label for="calificacion" class="form-label">calificacion</label>
+    <div class="col-md-3">
+      <label for="calificacion" class="form-label">Calificacion</label>
       <input formControlName="calificacion" type="text" class="form-control" id="calificacion">
       <div class="valido"
         *ngIf=" formulario.controls['calificacion'].touched && formulario.controls['calificacion'].valid ">
@@ -68,17 +68,29 @@
 
     </div>
 
-    <div class="col-md-6">
-      <label for="sexo" class="form-label">Sexo</label>
-      <input formControlName="sexo" type="text" class="form-control" id="sexo">
-      <div class="valido" *ngIf=" formulario.controls['sexo'].touched && formulario.controls['sexo'].valid ">
+    <div class="col-md-4">
+      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+      <input formControlName="fechaNacimiento" type="date" class="form-control" id="fechaNacimiento">
+      <div class="valido"
+        *ngIf=" formulario.controls['fechaNacimiento'].touched && formulario.controls['fechaNacimiento'].valid ">
         Es Válido
       </div>
       <div class="invalido"
-        *ngIf="formulario.controls['sexo'].errors?.['required'] && formulario.controls['sexo'].dirty ">
+        *ngIf="formulario.controls['fechaNacimiento'].errors?.['required'] && formulario.controls['fechaNacimiento'].dirty ">
         Está Vacío
       </div>
+    </div>
 
+    <div class="col-md-6">
+      <label for="foto" class="form-label">Foto</label>
+      <input formControlName="foto" type="string" class="form-control" id="foto">
+      <div class="valido" *ngIf=" formulario.controls['foto'].touched && formulario.controls['foto'].valid ">
+        Es Válido
+      </div>
+      <div class="invalido"
+        *ngIf="formulario.controls['foto'].errors?.['required'] && formulario.controls['foto'].dirty ">
+        Está Vacío
+      </div>
     </div>
 
     <div class="col-12">

@@ -6,6 +6,7 @@ import { Estudiante } from '../../../models/estudiante';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { CursosService } from '../../services/cursos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-estudiante',
@@ -17,18 +18,22 @@ export class AgregarEstudianteComponent {
   formulario: FormGroup;
   suscripcion!: Subscription;
 
-  constructor(private estudianteService: CursosService) {
+  constructor(
+    private estudianteService: CursosService,
+    private router: Router
+  ) {
     let controles: any = {
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl('', [Validators.required]),
       curso: new FormControl('', [Validators.required]),
+      foto: new FormControl('', [Validators.required]),
       correo: new FormControl('', [
         Validators.required,
         Validators.pattern(
           '[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}'
         ),
       ]),
-      sexo: new FormControl('', [Validators.required]),
+      fechaNacimiento: new FormControl('', [Validators.required]),
       calificacion: new FormControl('', [Validators.required]),
       becado: new FormControl('', []),
     };
@@ -51,5 +56,6 @@ export class AgregarEstudianteComponent {
   addEstudiante(form: any) {
     console.log('form', form);
     this.estudianteService.agregarEstudiante(form.value);
+    this.router.navigate(['cursos/list']);
   }
 }
